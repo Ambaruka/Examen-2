@@ -8,8 +8,6 @@
 #include "../Player/Player.h"
 #include "../Combat/Action.h"
 #include <vector>
-#include "../moustros/Goblin.h"
-#include "../moustros/Orco.h"
 
 struct Action;
 class Player;
@@ -20,7 +18,7 @@ class Enemy: public Character {
 protected:
     int tipe;
 public:
-    Enemy( int, int, int, int, int);
+    Enemy(int, int, int, int);
     void doAttack(Character *target) override;
     void takeDamage(int damage) override;
     Character* getTarget(vector<Player*> teamMembers);

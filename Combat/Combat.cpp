@@ -64,6 +64,8 @@ void Combat::doCombat() {
     if(enemies.size() == 0) {
 
         cout<<"You have won the combat"<<endl;
+        Player* player;
+        player->gainExperience(50);
     }
     else {
         cout<<"The enemies have won the combat - Game Over"<<endl;
@@ -105,13 +107,13 @@ void Combat::checkParticipantStatus(Character* participant) {
             teamMembers.erase(remove(teamMembers.begin(), teamMembers.end(), participant), teamMembers.end());
         }
         else {
-            int exp=50;
-            Player
+
+            }
             enemies.erase(remove(enemies.begin(), enemies.end(), participant), enemies.end());
         }
         participants.erase(remove(participants.begin(), participants.end(), participant), participants.end());
     }
-}
+
 
 void Combat::checkForFlee(Character *character) {
     bool fleed = character->hasFleed();

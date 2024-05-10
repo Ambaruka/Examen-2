@@ -38,6 +38,7 @@ public:
     void addParticipant(Character *participant);
     void doCombat();
     string participantsToString();
+
 };
 
 

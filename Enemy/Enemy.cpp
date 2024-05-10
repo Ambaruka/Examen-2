@@ -4,6 +4,7 @@
 #include <vector>
 #include "../Combat/Combat.h"
 
+
 using namespace std;
 
 class Combat;
@@ -14,7 +15,7 @@ int getRolledAttack(int attack) {
     return (rand() % (attack - lowerLimit)) + lowerLimit;
 }
 
-Enemy::Enemy( int health, int attack, int defense, int speed, int level) : Character(name, health, attack, defense, speed,level, false) {
+Enemy::Enemy( int health, int attack, int defense, int speed) : Character(name, health, attack, defense, speed,level, false) {
 }
 
 void Enemy::doAttack(Character *target) {
@@ -89,33 +90,34 @@ int Enemy :: tipeMoster(vector<Player *> teamMembers){
 void Enemy::createMonsters(vector<Player *> teamMembers) {
    // int cuantos=teamMembers.size();
     int minumlevel= getBaby(teamMembers)->getLevel();
+    Goblin* goblin;
 
     if (tipeMoster(teamMembers)==1){
         if(minumlevel==1) {
-            Goblin *enemy = new Goblin(15, 8, 5, 10);
-            Goblin *enemy2 = new Goblin(15, 8, 5, 10);
+            Enemy *enemy = new Enemy(15, 8, 5, 10);
+            Enemy *enemy2 = new Enemy(15, 8, 5, 10);
         }
        else if (minumlevel==2) {
-            Goblin *enemy = new Goblin(18, 10, 8, 15);
-            Goblin *enemy2 = new Goblin(18, 10, 8, 15);
+            Enemy *enemy = new Enemy(18, 10, 8, 15);
+            Enemy *enemy2 = new Enemy(18, 10, 8, 15);
         }
        else if (minumlevel==3){
-                Goblin *enemy= new Goblin(21,12,12,20);
-                Goblin *enemy2= new Goblin(21,12,12,20);
+            Enemy *enemy= new Enemy(21,12,12,20);
+            Enemy *enemy2= new Enemy(21,12,12,20);
         }
         else if(minumlevel==4){
-            Goblin *enemy= new Goblin(24,14,15,15);
-            Goblin *enemy2= new Goblin(24,14,15,15);
+            Enemy *enemy= new Enemy(24,14,15,15);
+            Enemy *enemy2= new Enemy(24,14,15,15);
         }
         else{
-            Orco *enemy= new Orco(30,15,20,5);
-            Goblin *enemy2 = new Goblin(15, 8, 5, 10);
+            Enemy *enemy= new Enemy(30,15,20,5);
+            Enemy *enemy2 = new Enemy(15, 8, 5, 10);
         }
     }
     else{
         if (minumlevel==6){
-            Orco *enemy= new Orco(34,20,23,5);
-            Goblin *enemy2 = new Goblin(18, 10, 8, 15);
+            Enemy *enemy= new Enemy(34,20,23,5);
+            Enemy *enemy2 = new Enemy(18, 10, 8, 15);
         }
     }
     return ;

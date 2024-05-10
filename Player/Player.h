@@ -23,7 +23,7 @@ public:
     void flee(vector<Enemy*> enemies);
     void emote();
     void levelUp();
-    void gainExperience(int);
+    int gainExperience(int exp);
 
     //Podemos hacer que este vector sea polimorfico?
     Action takeAction(vector<Enemy*> enemies);

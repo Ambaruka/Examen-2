@@ -60,12 +60,18 @@ void Player::levelUp() {
     setSpeed(getSpeed() + 5);
 }
 
-void Player::gainExperience(int exp) {
+int Player::gainExperience(int exp) {
     experience += exp;
     if (experience >= 100) {
         levelUp();
         experience = 0;
+        cout<<"Has subido a nivel "<<level<<endl;
     }
+    else{
+        cout<<"Has ganado"<<exp<<"\nExperiancia total actual= "<<experience<<endl;
+    }
+
+    return experience;
 }
 
 Character *Player::getTarget(vector<Enemy *> enemies) {
