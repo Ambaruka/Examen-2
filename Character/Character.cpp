@@ -1,23 +1,23 @@
-//
-// Created by Victor Navarro on 13/02/24.
-//
-#include "Character.h"
 
-Character::Character(string _name, int _health, int _attack, int _defense, int _speed, bool _isPlayer) {
-    name = _name;
+#include "Character.h"
+#include <string.h>
+
+Character::Character(const char* _name, int _health, int _attack, int _defense, int _speed,int _level, bool _isPlayer) {
+    strncpy(this->name,_name,20 );
     health = _health;
     attack = _attack;
     defense = _defense;
     speed = _speed;
+    level= _level;
     isPlayer = _isPlayer;
     fleed = false;
 }
 
-void Character::setName(string _name) {
-    name = _name;
+void Character::setName(char const* _name) {
+    strncpy(this->name,_name,20 );
 }
 
-string Character::getName() {
+char* Character::getName() {
     return name;
 }
 
@@ -54,7 +54,7 @@ int Character::getSpeed() {
 }
 
 string Character::toString() {
-    return "Name: " + name + "\nHealth: " + to_string(health) + "\nAttack: " + to_string(attack) + "\nDefense: " + to_string(defense) + "\nSpeed: " + to_string(speed);
+    return "Name: " + string (name) + "\nHealth: " + to_string(health) + "\nAttack: " + to_string(attack) + "\nDefense: " + to_string(defense) + "\nSpeed: " + to_string(speed);
 }
 
 bool Character::getIsPlayer() {
@@ -63,4 +63,12 @@ bool Character::getIsPlayer() {
 
 bool Character::hasFleed() {
     return fleed;
+}
+
+void Character::setLevel(int _level) {
+    level= _level;
+}
+
+int Character::getLevel() {
+    return level;
 }

@@ -1,6 +1,4 @@
-//
-// Created by Victor Navarro on 19/02/24.
-//
+
 
 #ifndef RPG_COMBAT_H
 #define RPG_COMBAT_H
@@ -31,6 +29,7 @@ private:
 
     void checkParticipantStatus(Character* participant);
     void checkForFlee(Character* character);
+
 
 public:
     Combat(vector<Character*> _participants);

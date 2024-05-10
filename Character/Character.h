@@ -4,29 +4,30 @@
 
 #ifndef RPG_CHARACTER_H
 #define RPG_CHARACTER_H
-#include<string>
+#include <string>
 #include "../Combat/Action.h"
 
 using namespace std;
 
 class Character {
 protected:
-    string name;
+    char name[30]{};
     int health;
     int attack;
     int defense;
     int speed;
+    int level;
     bool isPlayer;
     bool fleed;
 
 public:
-    Character(string, int, int, int, int, bool);
+    Character(const char*, int, int, int, int,int, bool);
 
     virtual void doAttack(Character *target) = 0;
     virtual void takeDamage(int damage) = 0;
 
-    void setName(string);
-    string getName();
+    void setName(const char*);
+    char* getName();
     void setHealth(int);
     int getHealth();
     void setAttack(int);
@@ -38,6 +39,9 @@ public:
     string toString();
     bool getIsPlayer();
     bool hasFleed();
+    void setLevel(int);
+    int getLevel();
+
 };
 
 

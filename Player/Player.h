@@ -1,6 +1,3 @@
-//
-// Created by Victor Navarro on 13/02/24.
-//
 
 #ifndef RPG_PLAYER_H
 #define RPG_PLAYER_H
@@ -17,7 +14,7 @@ protected:
     int experience;
     int level;
 public:
-    Player(string _name, int _health, int _attack, int _defense, int _speed);
+    Player(const char* _name, int _health, int _attack, int _defense, int _speed, int _level);
     void doAttack(Character *target) override;
     void takeDamage(int damage) override;
 

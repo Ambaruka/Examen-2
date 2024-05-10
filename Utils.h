@@ -1,6 +1,3 @@
-//
-// Created by Victor Navarro on 19/02/24.
-//
 
 #ifndef RPG_UTILS_H
 #define RPG_UTILS_H
@@ -8,7 +5,7 @@
 
 namespace combat_utils {
     int getRolledAttack(int attack) {
-        srand(time(NULL));
+        srand(time_t (NULL));
         int lowerLimit = attack * .80;
         return (rand() % (attack - lowerLimit)) + lowerLimit;
     }

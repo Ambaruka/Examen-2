@@ -1,15 +1,17 @@
-//
-// Created by Victor Navarro on 19/02/24.
-//
+
 #include "Combat.h"
 #include <iostream>
 #include <algorithm>
+#include "../Enemy/Enemy.h"
 
 using namespace std;
+
+class Enemy;
 
 bool compareSpeed(Character *a, Character *b) {
     return a->getSpeed() > b->getSpeed();
 }
+
 
 Combat::Combat(vector<Character *> _participants) {
     participants = std::move(_participants);
@@ -38,6 +40,7 @@ void Combat::addParticipant(Character *participant) {
         teamMembers.push_back((Player*)participant);
     }
     else {
+
         enemies.push_back((Enemy*)participant);
     }
 }
@@ -127,3 +130,4 @@ string Combat::participantsToString() {
     }
     return result;
 }
+
