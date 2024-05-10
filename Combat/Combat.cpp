@@ -3,10 +3,12 @@
 #include <iostream>
 #include <algorithm>
 #include "../Enemy/Enemy.h"
+#include "../Player/Player.h"
 
 using namespace std;
 
 class Enemy;
+class Player;
 
 bool compareSpeed(Character *a, Character *b) {
     return a->getSpeed() > b->getSpeed();
@@ -60,6 +62,7 @@ void Combat::doCombat() {
 
     //No se imprime el nombre del ganador
     if(enemies.size() == 0) {
+
         cout<<"You have won the combat"<<endl;
     }
     else {
@@ -102,6 +105,8 @@ void Combat::checkParticipantStatus(Character* participant) {
             teamMembers.erase(remove(teamMembers.begin(), teamMembers.end(), participant), teamMembers.end());
         }
         else {
+            int exp=50;
+            Player
             enemies.erase(remove(enemies.begin(), enemies.end(), participant), enemies.end());
         }
         participants.erase(remove(participants.begin(), participants.end(), participant), participants.end());

@@ -27,7 +27,7 @@ public:
     Action takeAction(vector<Player*> player);
     int tipeMoster(vector<Player *> teamMembers);
     Character* getBaby(vector<Player *> teamMembers);
-    Character* createMonsters(vector<Player *> teamMembers);
+    void createMonsters(vector<Player *> teamMembers);
 
 };
 

@@ -86,23 +86,37 @@ int Enemy :: tipeMoster(vector<Player *> teamMembers){
     }
 }
 
-Character* Enemy::createMonsters(vector<Player *> teamMembers) {
+void Enemy::createMonsters(vector<Player *> teamMembers) {
    // int cuantos=teamMembers.size();
     int minumlevel= getBaby(teamMembers)->getLevel();
+
     if (tipeMoster(teamMembers)==1){
-        if(minumlevel=1) {
+        if(minumlevel==1) {
             Goblin *enemy = new Goblin(15, 8, 5, 10);
             Goblin *enemy2 = new Goblin(15, 8, 5, 10);
         }
-       if (minumlevel=2) {
+       else if (minumlevel==2) {
             Goblin *enemy = new Goblin(18, 10, 8, 15);
             Goblin *enemy2 = new Goblin(18, 10, 8, 15);
         }
-        else if (minumlevel=3){
+       else if (minumlevel==3){
                 Goblin *enemy= new Goblin(21,12,12,20);
                 Goblin *enemy2= new Goblin(21,12,12,20);
         }
-
+        else if(minumlevel==4){
+            Goblin *enemy= new Goblin(24,14,15,15);
+            Goblin *enemy2= new Goblin(24,14,15,15);
+        }
+        else{
+            Orco *enemy= new Orco(30,15,20,5);
+            Goblin *enemy2 = new Goblin(15, 8, 5, 10);
+        }
     }
-
+    else{
+        if (minumlevel==6){
+            Orco *enemy= new Orco(34,20,23,5);
+            Goblin *enemy2 = new Goblin(18, 10, 8, 15);
+        }
+    }
+    return ;
 }

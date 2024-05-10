@@ -3,8 +3,11 @@
 #include "Player/Player.h"
 #include "Combat/Combat.h"
 #include <queue>
+#include "vector"
 
 using namespace std;
+
+class Enemy;
 
 int main() {
 
@@ -15,7 +18,7 @@ int main() {
 
     Player *player = new Player(temporal, 4, 7, 2, 10,1);
 
-
+    createMonsters(vector<Player *> teamMembers);
 
     vector<Character*> participants;
     participants.push_back(player);
