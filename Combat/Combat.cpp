@@ -69,6 +69,8 @@ void Combat::doCombat() {
     }
     else {
         cout<<"The enemies have won the combat - Game Over"<<endl;
+        Enemy* enemy;
+        enemy->revive();
     }
 }
 

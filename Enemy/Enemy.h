@@ -18,14 +18,14 @@ class Enemy: public Character {
 protected:
     int tipe;
 public:
-    Enemy(int, int, int, int);
+    Enemy(const char*, int, int, int, int,int);
     void doAttack(Character *target) override;
     void takeDamage(int damage) override;
     Character* getTarget(vector<Player*> teamMembers);
     Action takeAction(vector<Player*> player);
+    void revive();
     int tipeMoster(vector<Player *> teamMembers);
     Character* getBaby(vector<Player *> teamMembers);
-    void createMonsters(vector<Player *> teamMembers);
 
 };
 

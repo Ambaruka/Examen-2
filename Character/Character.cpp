@@ -3,7 +3,7 @@
 #include <string.h>
 
 Character::Character(const char* _name, int _health, int _attack, int _defense, int _speed,int _level, bool _isPlayer) {
-    strncpy(this->name,_name,20 );
+    strncpy(this->name,_name,30 );
     health = _health;
     attack = _attack;
     defense = _defense;
@@ -14,7 +14,7 @@ Character::Character(const char* _name, int _health, int _attack, int _defense, 
 }
 
 void Character::setName(char const* _name) {
-    strncpy(this->name,_name,20 );
+    strncpy(this->name,_name,30 );
 }
 
 char* Character::getName() {
