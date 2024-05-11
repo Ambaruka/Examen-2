@@ -12,11 +12,18 @@ bool compareSpeed(Enemy *a, Enemy *b) {
     return a->getSpeed() > b->getSpeed();
 }
 
-Player::Player(const char* name, int health, int attack, int defense, int speed, int level) : Character(name, health, attack, defense,
+Player::Player( char* name, int health, int attack, int defense, int speed, int level) : Character(name, health, attack, defense,
                                                                                         speed, level, true) {
     experience = 0;
     level = 1;
 }
+
+Player::Player(char* _name, int _health, int _attack, int _defense, int _speed, bool _isPlayer, int _experience, int _level): Character(_name, _health, _attack, _defense,
+                                                                                                                                        _speed,_level, _isPlayer) {
+    experience = _experience;
+    level = _level;
+}
+
 
 void Player::doAttack(Character *target) {
     int rolledAttack = getRolledAttack(getAttack());

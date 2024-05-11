@@ -3,6 +3,7 @@
 #include "Player/Player.h"
 #include "Combat/Combat.h"
 #include "vector"
+#include <cstring>
 
 using namespace std;
 
@@ -11,15 +12,22 @@ class Enemy;
 int main() {
 
     int decicion;
-    char temporal[30], nombre1[30]="Goblin",nombre2[30]="Orco";
-    cout<<"Ingresa tu nombre de usuario"<<endl;
-    cin>>temporal;
+    string nombre1="Goblin",nombre2="Orco",usuario;
+    char temporal[30],name1[30] ,name2[30];
 
+    strcpy(name1,nombre1.c_str());
+    strcpy(name2,nombre2.c_str());
+
+    cout<<"Ingresa tu nombre de usuario"<<endl;
+    cin>>usuario;
+
+    strcpy(temporal,usuario.c_str());
 
     Player *player = new Player(temporal, 6, 7, 4, 10,1);
 
-    Enemy *enemy = new Enemy(nombre1, 5, 8, 2, 10,1);
-    Enemy *enemy2 = new Enemy(nombre2, 5, 8, 2, 10,1);
+    Enemy *enemy = new Enemy(name1, 5, 8, 2, 10,1);
+    Enemy *enemy2 = new Enemy(name2, 5, 8, 2, 10,1);
+
     vector<Character*> participants;
     participants.push_back(player);
     participants.push_back(enemy);

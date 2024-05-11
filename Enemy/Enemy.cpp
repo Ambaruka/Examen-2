@@ -15,7 +15,7 @@ int getRolledAttack(int attack) {
     return (rand() % (attack - lowerLimit)) + lowerLimit;
 }
 
-Enemy::Enemy( const char* name, int health, int attack, int defense, int speed,int level) : Character(name, health, attack, defense, speed,level, false) {
+Enemy::Enemy(  char* name, int health, int attack, int defense, int speed,int level) : Character(name, health, attack, defense, speed,level, false) {
 }
 
 void Enemy::doAttack(Character *target) {

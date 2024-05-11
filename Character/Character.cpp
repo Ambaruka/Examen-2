@@ -1,9 +1,10 @@
 
 #include "Character.h"
 #include <string.h>
+#include <cstring>
 
-Character::Character(const char* _name, int _health, int _attack, int _defense, int _speed,int _level, bool _isPlayer) {
-    strncpy(this->name,_name,30 );
+Character::Character( char* _name, int _health, int _attack, int _defense, int _speed,int _level, bool _isPlayer) {
+    strcpy(name,_name);
     health = _health;
     attack = _attack;
     defense = _defense;
@@ -14,7 +15,7 @@ Character::Character(const char* _name, int _health, int _attack, int _defense, 
 }
 
 void Character::setName(char const* _name) {
-    strncpy(this->name,_name,30 );
+    strcpy(name,_name );
 }
 
 char* Character::getName() {
