@@ -14,7 +14,7 @@ Character::Character( char* _name, int _health, int _attack, int _defense, int _
     fleed = false;
 }
 
-void Character::setName(char const* _name) {
+void Character::setName(char* _name) {
     strcpy(name,_name );
 }
 

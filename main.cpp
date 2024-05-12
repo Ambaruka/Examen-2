@@ -28,29 +28,32 @@ int main() {
     Enemy *enemy = new Enemy(name1, 5, 8, 2, 10,1);
     Enemy *enemy2 = new Enemy(name2, 5, 8, 2, 10,1);
 
-    vector<Character*> participants;
-    participants.push_back(player);
-    participants.push_back(enemy);
-    participants.push_back(enemy2);
+   // vector<Character*> participants;
+  //  participants.push_back(player);
+  //  participants.push_back(enemy);
+  //  participants.push_back(enemy2);
 
-    Combat* combat = new Combat(participants);
+   // Combat* combat = new Combat(participants);
 
-    do {
-        do {
-            combat->doCombat();
+  //  do {
+  //      do {
+          //  combat->doCombat();
 
-            cout<<"Pasar al siguiente combate? \n1=si   2=no"<<endl;
-            cin>>decicion;
-        } while (decicion>=3 && decicion<=0);
+  //          cout<<"Pasar al siguiente combate? \n1=si   2=no"<<endl;
+  //          cin>>decicion;
+  //      } while (decicion>=3 && decicion<=0);
 
-    } while (decicion==2);
+  //  } while (decicion==2);
 
+    char* buffer = player->serialize();
+
+    Player* ooootroPlayer = Player::unserialize(buffer);
 
 
     delete player;
     delete enemy;
     delete enemy2;
-    delete combat;
+    //delete combat;
 
     return 0;
 }
