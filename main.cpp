@@ -16,6 +16,7 @@ int main() {
     cout<<"Ingresa tu nombre de usuario"<<endl;
     cin>>temporal;
 
+
     Player *player = new Player(temporal, 777777, 555555, 4, 10,1);
 
     Enemy *enemy = new Enemy("POO", 5, 8, 2, 10,1);

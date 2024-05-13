@@ -22,8 +22,9 @@ public:
     Action takeAction(vector<Player*> player);
     void revive();
     int tipeMoster(vector<Player *> teamMembers);
-    Character* getBaby(vector<Player *> teamMembers);
 
+
+    Character *getBaby(vector<Player *> teamMembers);
 };
 
 

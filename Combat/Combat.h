@@ -16,7 +16,7 @@ using namespace std;
 class Combat {
 private:
 
-    int botin=0;
+    int botin=50;
 
     //Realmente sigo necesitando este vector?
     vector<Character*> participants;
@@ -45,6 +45,11 @@ public:
     void setBotin();
     int darBotin();
 
+    Character* getBabyPlayer(vector<Player *> teamMembers);
+    Character* getBabyEnemy(vector<Enemy *> enemies);
+    void checkLevel();
+
+    void nuevaRonda();
 };
 
 

@@ -63,39 +63,28 @@ Action Enemy::takeAction(vector<Player *> player) {
 }
 
 
-Character* Enemy::getBaby(vector<Player *> teamMembers) {
-    int targetIndex = 0;
-    int lowestLevel = INT_MAX;
-    for(int i=0; i < teamMembers.size(); i++) {
-        if(teamMembers[i]->getLevel() < lowestLevel) {
-            lowestLevel = teamMembers[i]->getLevel();
-            targetIndex = i;
-        }
-    };
-    return teamMembers[targetIndex];
-}
-
 void Enemy::revive() {
     level++;
     setHealth(getHealth() + 8);
     setAttack(getAttack() + 6);
     setDefense(getDefense() + 5);
     setSpeed(getSpeed() + 5);
+    cout<<"El enemigo a subido a nivel "<<level<<endl;
 }
 
 
 //mauske herramienta misteriosa
-int Enemy :: tipeMoster(vector<Player *> teamMembers){
-    Character* baby;
-    baby=getBaby(teamMembers);
-    if (baby->getLevel()<=5){
-        int tipe=1;
-        return tipe;
-    }
-    else{
-        int tipe=2;
-        return tipe;
-    }
-}
+//int Enemy :: tipeMoster(vector<Player *> teamMembers){
+  //  Character* baby;
+    //baby=getBabyPlayer(teamMembers);
+    //if (baby->getLevel()<=5){
+      //  int tipe=1;
+        //return tipe;
+    //}
+    //else{
+      //  int tipe=2;
+        //return tipe;
+    //}
+//}
 
 

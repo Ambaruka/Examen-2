@@ -52,14 +52,14 @@ void Player::emote() {
 void Player::levelUp() {
     level++;
     setHealth(getHealth() + 10);
-    setAttack(getAttack() + 5);
+    setAttack(getAttack() + 7);
     setDefense(getDefense() + 5);
     setSpeed(getSpeed() + 5);
 }
 
 int Player::gainExperience(int exp) {
     experience += exp;
-    if (experience >= 100) {
+    if (experience >= 90) {
         levelUp();
         experience = 0;
         cout<<"Has subido a nivel "<<level<<endl;

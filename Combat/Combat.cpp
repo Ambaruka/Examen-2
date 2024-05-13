@@ -2,8 +2,10 @@
 #include "Combat.h"
 #include <iostream>
 #include <algorithm>
+#include <utility>
 #include "../Enemy/Enemy.h"
 #include "../Player/Player.h"
+#include "climits"
 
 using namespace std;
 
@@ -58,15 +60,20 @@ void Combat::doCombat() {
     while(enemies.size() != 0 && teamMembers.size() != 0) {
         registerActions();
         executeActions();
+
+        for (Player* usuario: teamMembers) {
+            usuario->gainExperience(darBotin());
+        }
+
+        checkLevel();
     }
 
     //No se imprime el nombre del ganador
     if(enemies.size() == 0) {
 
         cout<<"You have won the combat"<<endl;
-        for (Player* pendejosQueGanaron: teamMembers) {
-        pendejosQueGanaron->gainExperience(darBotin());
-        }
+
+      //  nuevaRonda();
 
     }
     else {
@@ -140,10 +147,59 @@ string Combat::participantsToString() {
 }
 
 void Combat::setBotin() {
-    botin+=100;
+    botin+=botin;
 }
 
 int Combat::darBotin() {
     return botin;
+}
+
+Character* Combat::getBabyPlayer(vector<Player *> teamMembers) {
+    int targetIndex = 0;
+    int lowestLevel = INT_MAX;
+    for(int i=0; i < teamMembers.size(); i++) {
+        if(teamMembers[i]->getLevel() < lowestLevel) {
+            lowestLevel = teamMembers[i]->getLevel();
+            targetIndex = i;
+        }
+    };
+    return teamMembers[targetIndex];
+}
+
+Character *Combat::getBabyEnemy(vector<Enemy *> enemies) {
+    int targetIndex = 0;
+    int lowestLevel = INT_MAX;
+    for(int i=0; i < enemies.size(); i++) {
+        if(enemies[i]->getLevel() < lowestLevel) {
+            lowestLevel = enemies[i]->getLevel();
+            targetIndex = i;
+        }
+    };
+    return enemies[targetIndex];
+}
+
+
+void Combat::checkLevel() {
+    Character* baby;
+    Character* gremlin;
+    gremlin= getBabyEnemy(enemies);
+    baby = getBabyPlayer(teamMembers);
+
+    if (baby->getLevel() > gremlin->getLevel()){
+        for (Enemy* noMuertos: enemies) {
+            noMuertos->revive();
+        }
+    }
+}
+
+void Combat::nuevaRonda() {
+    int respuesta;
+
+    cout<<"Jugar otra ronda: \n1=si     2=no"<<endl;
+    cin>>respuesta;
+    if (respuesta==1){
+
+        doCombat();
+    }
 }
 
