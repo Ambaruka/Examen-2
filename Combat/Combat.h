@@ -16,7 +16,7 @@ using namespace std;
 class Combat {
 private:
 
-    int botin=50;
+    int botin=0,enemigosIniciales=0;
 
     //Realmente sigo necesitando este vector?
     vector<Character*> participants;

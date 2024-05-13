@@ -59,13 +59,10 @@ void Player::levelUp() {
 
 int Player::gainExperience(int exp) {
     experience += exp;
-    if (experience >= 90) {
+    if (experience >= 100) {
         levelUp();
-        experience = 0;
+        experience=0;
         cout<<"Has subido a nivel "<<level<<endl;
-    }
-    else{
-        cout<<"Has ganado"<<exp<<"\nExperiancia total actual= "<<experience<<endl;
     }
 
     return experience;

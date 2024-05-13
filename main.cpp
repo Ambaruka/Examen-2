@@ -17,9 +17,9 @@ int main() {
     cin>>temporal;
 
 
-    Player *player = new Player(temporal, 777777, 555555, 4, 10,1);
+    Player *player = new Player(temporal, 15, 8, 4, 10,1);
 
-    Enemy *enemy = new Enemy("POO", 5, 8, 2, 10,1);
+    Enemy *enemy = new Enemy("POO", 10, 8, 2, 10,1);
     Enemy *enemy2 = new Enemy("CALCULO", 5, 8, 2, 10,1);
 
   vector<Character*> participants;

@@ -58,16 +58,15 @@ void Combat::doCombat() {
 
     //Este while es 1 iteracion por ronda
     while(enemies.size() != 0 && teamMembers.size() != 0) {
+        checkLevel();
+
         registerActions();
         executeActions();
 
-        for (Player* usuario: teamMembers) {
-            usuario->gainExperience(darBotin());
-        }
-
-        checkLevel();
     }
-
+    for (Player* usuario: teamMembers) {
+        usuario->gainExperience(darBotin());
+    }
     //No se imprime el nombre del ganador
     if(enemies.size() == 0) {
 
@@ -116,6 +115,7 @@ void Combat::checkParticipantStatus(Character *participant) {
             teamMembers.erase(remove(teamMembers.begin(), teamMembers.end(), participant), teamMembers.end());
         } else {
             this->setBotin();
+
             enemies.erase(remove(enemies.begin(), enemies.end(), participant), enemies.end());
         }
         participants.erase(remove(participants.begin(), participants.end(), participant), participants.end());
@@ -147,7 +147,7 @@ string Combat::participantsToString() {
 }
 
 void Combat::setBotin() {
-    botin+=botin;
+    botin+=50;
 }
 
 int Combat::darBotin() {
