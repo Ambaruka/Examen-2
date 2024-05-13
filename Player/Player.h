@@ -12,19 +12,17 @@ class Enemy;
 class Player: public Character {
 protected:
     int experience;
-    int level;
 public:
 
-    Player(char* _name, int _health, int _attack, int _defense, int _speed, int _level);
-    Player(char* _name, int _health, int _attack, int _defense, int _speed, bool _isPlayer, int _experience);
+    Player(const char* _name, int _health, int _attack, int _defense, int _speed, int _level);
 
     void doAttack(Character *target) override;
     void takeDamage(int damage) override;
 
-    char* serialize();
-    static const unsigned int BUFFER_SIZE = sizeof (name) + sizeof(health) + sizeof(attack) + sizeof(defense) + sizeof(speed) + sizeof(isPlayer) + sizeof(level) + sizeof(experience);
+    //char* serialize();
+    //static const unsigned int BUFFER_SIZE = sizeof (name) + sizeof(health) + sizeof(attack) + sizeof(defense) + sizeof(speed) + sizeof(isPlayer) + sizeof(level) + sizeof(experience);
 
-    static Player* unserialize(char* buffer);
+    //static Player* unserialize(char* buffer);
 
     Character* getTarget(vector<Enemy*> enemies);
 
@@ -37,7 +35,7 @@ public:
     Action takeAction(vector<Enemy*> enemies);
 
 private:
-    char buffer[BUFFER_SIZE];
+    //char buffer[BUFFER_SIZE];
 
 };
 

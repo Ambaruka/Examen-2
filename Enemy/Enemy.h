@@ -11,14 +11,11 @@
 
 struct Action;
 class Player;
-class Goblin;
-class Orco;
 
 class Enemy: public Character {
-protected:
-    int tipe;
+
 public:
-    Enemy( char*, int, int, int, int,int );
+    Enemy(const char*, int, int, int, int,int );
     void doAttack(Character *target) override;
     void takeDamage(int damage) override;
     Character* getTarget(vector<Player*> teamMembers);

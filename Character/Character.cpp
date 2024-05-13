@@ -3,8 +3,8 @@
 #include <string.h>
 #include <cstring>
 
-Character::Character( char* _name, int _health, int _attack, int _defense, int _speed,int _level, bool _isPlayer) {
-    strcpy(name,_name);
+Character::Character(const char* _name, int _health, int _attack, int _defense, int _speed,int _level, bool _isPlayer) {
+    strncpy(this->name,_name,sizeof (this->name)-1);
     health = _health;
     attack = _attack;
     defense = _defense;
@@ -14,12 +14,12 @@ Character::Character( char* _name, int _health, int _attack, int _defense, int _
     fleed = false;
 }
 
-void Character::setName(char* _name) {
-    strcpy(name,_name );
+void Character::setName(char const* _name) {
+    strncpy(this->name,_name,sizeof (this->name)-1);
 }
 
-char* Character::getName() {
-    return name;
+const char* Character::getName() const{
+    return this->name;
 }
 
 void Character::setHealth(int _health) {
