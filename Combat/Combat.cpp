@@ -64,13 +64,13 @@ void Combat::doCombat() {
     if(enemies.size() == 0) {
 
         cout<<"You have won the combat"<<endl;
-        Player* player;
-        player->gainExperience(50);
+        for (Player* pendejosQueGanaron: teamMembers) {
+        pendejosQueGanaron->gainExperience(darBotin());
+        }
+
     }
     else {
         cout<<"The enemies have won the combat - Game Over"<<endl;
-        Enemy* enemy;
-        enemy->revive();
     }
 }
 
@@ -103,18 +103,17 @@ void Combat::executeActions() {
     }
 }
 
-void Combat::checkParticipantStatus(Character* participant) {
-    if(participant->getHealth() <= 0) {
-        if(participant->getIsPlayer()) {
+void Combat::checkParticipantStatus(Character *participant) {
+    if (participant->getHealth()<=0) {
+        if (participant->getIsPlayer()) {
             teamMembers.erase(remove(teamMembers.begin(), teamMembers.end(), participant), teamMembers.end());
-        }
-        else {
-
-            }
+        } else {
+            this->setBotin();
             enemies.erase(remove(enemies.begin(), enemies.end(), participant), enemies.end());
         }
         participants.erase(remove(participants.begin(), participants.end(), participant), participants.end());
     }
+}
 
 
 void Combat::checkForFlee(Character *character) {
@@ -138,5 +137,13 @@ string Combat::participantsToString() {
         result += participants[i]->toString() + "\n";
     }
     return result;
+}
+
+void Combat::setBotin() {
+    botin+=100;
+}
+
+int Combat::darBotin() {
+    return botin;
 }
 

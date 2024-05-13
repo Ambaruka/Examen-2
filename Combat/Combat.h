@@ -15,6 +15,9 @@ using namespace std;
 
 class Combat {
 private:
+
+    int botin=0;
+
     //Realmente sigo necesitando este vector?
     vector<Character*> participants;
     vector<Player*> teamMembers;
@@ -38,6 +41,9 @@ public:
     void addParticipant(Character *participant);
     void doCombat();
     string participantsToString();
+
+    void setBotin();
+    int darBotin();
 
 };
 
