@@ -10,7 +10,7 @@ class Enemy;
 
 int main() {
 
-    int decicion;
+    int decicion=1;
     char temporal[30];
 
     cout<<"Ingresa tu nombre de usuario"<<endl;

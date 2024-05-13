@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include "../Combat/Combat.h"
+#include "climits"
 
 
 using namespace std;
