@@ -63,7 +63,7 @@ Action Enemy::takeAction(vector<Player *> player) {
 }
 
 
-void Enemy::revive() {
+void Enemy::enemyLevel() {
     level++;
     setHealth(getHealth() + 8);
     setAttack(getAttack() + 6);
@@ -73,18 +73,40 @@ void Enemy::revive() {
 }
 
 
-//mauske herramienta misteriosa
-//int Enemy :: tipeMoster(vector<Player *> teamMembers){
-  //  Character* baby;
-    //baby=getBabyPlayer(teamMembers);
-    //if (baby->getLevel()<=5){
-      //  int tipe=1;
-        //return tipe;
-    //}
-    //else{
-      //  int tipe=2;
-        //return tipe;
-    //}
-//}
+
+int Enemy :: tipeMoster(vector<Player *> teamMembers){
+    Character* baby;
+    baby=getBaby(teamMembers);
+    switch (baby->getLevel()) {
+        case 1:
+            Enemy *enemy = new Enemy("Goblin", 10, 8, 2, 10,1);
+            Enemy *enemy2 = new Enemy("Goblinrojo", 5, 8, 2, 10,1);
+            break;
+        case 2:
+            Enemy *enemy = new Enemy("Goblin", 10, 8, 2, 10,1);
+            Enemy *enemy2 = new Enemy("Goblinrojo", 5, 8, 2, 10,1);
+            Enemy *enemy3 = new Enemy("Goblinazul", 10, 8, 2, 10,1);
+            break;
+        case 3:
+            Enemy *enemy = new Enemy("Ogro", 25, 15, 10, 2,1);
+            break;
+        case 4:
+            Enemy *enemy = new Enemy("Ogro", 25, 15, 10, 2,1);
+            Enemy *enemy2 = new Enemy("Goblinrojo", 5, 8, 2, 10,1);
+            break;
+        case 5:
+            Enemy *enemy = new Enemy("Ogro", 25, 15, 10, 2,1);
+            Enemy *enemy2 = new Enemy("Ogra", 25, 15, 10, 2,1);
+    }
+}
 
 
+Character *getBaby(vector<Player *> teamMembers){
+    int targetIndex = 0;
+    int lowestlevel = INT_MAX;
+    for(int i=0; i < teamMembers.size(); i++) {
+        if(teamMembers[i]->getLevel() < lowestlevel) {
+            lowestlevel = teamMembers[i]->getLevel();
+            targetIndex = i;
+        }
+}}
