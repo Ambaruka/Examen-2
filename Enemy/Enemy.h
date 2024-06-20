@@ -21,9 +21,10 @@ public:
     Character* getTarget(vector<Player*> teamMembers);
     Action takeAction(vector<Player*> player);
 
-    Character *getBaby(vector<Player *> teamMembers);
-    int tipeMoster(vector<Player *> teamMembers);
+   // Character *getBaby(vector<Player *> teamMembers);
+   // Character * tipeMonster(vector<Player *> teamMembers);
     void enemyLevel();
+
 
 
 };

@@ -117,3 +117,14 @@ Action Player::takeAction(vector<Enemy *> enemies) {
     return myAction;
 }
 
+Character *getBaby(vector<Player *> teamMembers){
+    int targetIndex = 0;
+    int lowestlevel = INT_MAX;
+    for(int i=0; i < teamMembers.size(); i++) {
+        if(teamMembers[i]->getLevel() < lowestlevel) {
+            lowestlevel = teamMembers[i]->getLevel();
+            targetIndex = i;
+        }
+    }}
+
+

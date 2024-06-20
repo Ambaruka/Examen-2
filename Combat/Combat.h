@@ -50,6 +50,10 @@ public:
     void checkLevel();
 
     void nuevaRonda();
+    Character* createEnemy(vector<Player *> teamMembers);
+    Character * tipeMonster(vector<Player *> teamMembers);
+
+    void finishCombat(vector<Player*> _teamMembers, vector<Enemy*> _enemies);
 };
 
 

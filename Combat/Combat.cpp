@@ -49,11 +49,18 @@ void Combat::addParticipant(Character *participant) {
     }
 }
 
+Character* Combat::createEnemy(vector<Player*> _teamMembers) {
+
+
+}
+
 void Combat::prepareCombat() {
     sort(participants.begin(), participants.end(), compareSpeed);
+
 }
 
 void Combat::doCombat() {
+    tipeMonster(teamMembers);
     prepareCombat();
 
     //Este while es 1 iteracion por ronda
@@ -72,11 +79,13 @@ void Combat::doCombat() {
 
         cout<<"You have won the combat"<<endl;
 
-      //  nuevaRonda();
+        finishCombat(teamMembers,enemies);
+        nuevaRonda();
 
     }
     else {
         cout<<"The enemies have won the combat - Game Over"<<endl;
+        finishCombat(teamMembers,enemies);
     }
 }
 
@@ -179,18 +188,18 @@ Character *Combat::getBabyEnemy(vector<Enemy *> enemies) {
 }
 
 
-void Combat::checkLevel() {
-    Character* baby;
-    Character* gremlin;
-    gremlin= getBabyEnemy(enemies);
-    baby = getBabyPlayer(teamMembers);
+//void Combat::checkLevel() {
+  //  Character* baby;
+    //Character* gremlin;
+    //gremlin= getBabyEnemy(enemies);
+    //baby = getBabyPlayer(teamMembers);
 
-    if (baby->getLevel() > gremlin->getLevel()){
-        for (Enemy* noMuertos: enemies) {
-            noMuertos->revive();
-        }
-    }
-}
+//    if (baby->getLevel() > gremlin->getLevel()){
+  //      for (Enemy* noMuertos: enemies) {
+    //        noMuertos->tipeMonster();
+      //  }
+    //}
+//}
 
 void Combat::nuevaRonda() {
     int respuesta;
@@ -203,3 +212,57 @@ void Combat::nuevaRonda() {
     }
 }
 
+Character * Combat :: tipeMonster(vector<Player *> teamMembers){
+    Character* baby;
+    baby=getBabyPlayer(teamMembers);
+    if (baby->getLevel()==1) {
+        Enemy *enemy = new Enemy("Goblin", 10, 8, 2, 10, 1);
+        Enemy *enemy2 = new Enemy("Goblinrojo", 5, 8, 2, 10, 1);
+
+        participants.push_back(enemy);
+        participants.push_back(enemy2);
+    }
+    else if (baby->getLevel()==2) {
+        Enemy *enemy = new Enemy("Goblin", 10, 8, 2, 10, 1);
+        Enemy *enemy2 = new Enemy("Goblinrojo", 5, 8, 2, 10, 1);
+        Enemy *enemy3 = new Enemy("Goblinazul", 10, 8, 2, 10, 1);
+
+        participants.push_back(enemy);
+        participants.push_back(enemy2);
+        participants.push_back(enemy3);
+    }
+    else if (baby->getLevel()==3) {
+        Enemy *enemy = new Enemy("Ogro", 25, 15, 10, 2, 1);
+
+        participants.push_back(enemy);
+    }
+    else if (baby->getLevel()==4) {
+        Enemy *enemy = new Enemy("Ogro", 25, 15, 10, 2, 1);
+        Enemy *enemy2 = new Enemy("Goblinrojo", 5, 8, 2, 10, 1);
+
+        participants.push_back(enemy);
+        participants.push_back(enemy2);
+    }
+    else{
+        Enemy *enemy = new Enemy("Ogro", 25, 15, 10, 2,1);
+        Enemy *enemy2 = new Enemy("Ogra", 25, 15, 10, 2,1);
+
+        participants.push_back(enemy);
+        participants.push_back(enemy2);
+    }
+}
+
+void Combat::finishCombat(vector<Player*> _teamMembers, vector<Enemy*> _enemies) {
+
+
+        if (getBabyPlayer(teamMembers)->getLevel() >= 5 && teamMembers.size()==0) {
+            for (int i = 0; i < teamMembers.size(); ++i) {
+                delete teamMembers[i];
+            }
+        }
+
+    for (int i = 0; i < enemies.size() ; ++i) {
+            delete enemies[i];
+    }
+
+}

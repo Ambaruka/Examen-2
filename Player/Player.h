@@ -33,6 +33,8 @@ public:
 
     //Podemos hacer que este vector sea polimorfico?
     Action takeAction(vector<Enemy*> enemies);
+    Character *getBaby(vector<Player *> teamMembers);
+
 
 private:
     //char buffer[BUFFER_SIZE];
